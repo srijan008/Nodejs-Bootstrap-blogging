@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <title>Homepage</title>
+  </head>
+  <body>
+    <%- include('./partials/nav') %>
+    <div class="container mt-3">        
+        <form action="/blog" method = "post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="coverImage" class="form-label">Cover Image</label>
+                <input
+                  type = "file"
+                  class="form-control"
+                  name="coverImage"
+                  id="coverImage"
+                  aria-describedby="coverImage"  
+                ></input>
+            </div>
+            <div class="container mb-3">
+                <label for="title" class="form-label">Title</label>
+                <textarea
+                  class="form-control"
+                  placeholder="Enter a title here"
+                  name="title"
+                  id="title"
+                  style="height: 10px"  
+                ></textarea>
+            </div>
+              <div class="container mb-3">
+                <label for="body" class="form-label">Body</label>
+                <textarea
+                  class="form-control"
+                  placeholder="Leave a blog here"
+                  name="body"
+                  id="body"
+                  style="height: 100px"
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+        </form>
+    </div> 
+
+    <%- include('./partials/scripts') %>
+  </body>
+</html>
