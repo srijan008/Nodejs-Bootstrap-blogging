@@ -31,13 +31,23 @@ router.get('/logout', (req, res) => {
 
 router.post("/signup", async(req, res) => {
     const { fullName, email, password } = req.body;
-    await User.create({
-        fullName,
-        email,
-        password,
-    });
-    return res.redirect("/")
-})
+
+    try {
+        await User.create({
+            fullName,
+            email,
+            password,
+        });
+        return res.redirect("/");
+    } catch (error) {
+        if (error.code === 11000) {
+            console.error(`Duplicate key error: ${JSON.stringify(error.keyValue)}`);
+            return res.render("signup");
+        }
+        
+    }
+}
+)
 
 module.exports = router;
 
