@@ -12,12 +12,13 @@ const Blog = require('./models/blog')
 const app = express();
 const port = process.env.PORT || 8000;
 
+
+
 mongoose
     .connect(process.env.MONGO_URL)
-    .then(e => console.log("MongoDB Connected"));
+    .then(() => console.log('MongoDB connected'))
 
     
-
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
 

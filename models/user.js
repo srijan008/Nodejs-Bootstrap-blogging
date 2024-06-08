@@ -10,11 +10,10 @@ const userSchema = new Schema({
     email:{
         type: String,
         required: true,
-        unique: true,
+        unique: true
     },
     salt:{
-        type: String,
-       
+        type: String,       
     },
     password:{
         type: String,
