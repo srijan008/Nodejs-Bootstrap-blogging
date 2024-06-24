@@ -13,7 +13,6 @@ const app = express();
 const port = process.env.PORT || 8000;
 
 
-
 mongoose
     .connect(process.env.MONGO_URL)
     .then(() => console.log('MongoDB connected'))
@@ -29,7 +28,7 @@ app.use(cookiePaser());
 app.use(checkForAuthenticationCookie("token"));
 
 app.get("/", async (req, res) => {    
-    const allBlogs = await Blog.find({})
+    const allBlogs = await Blog.find({});
     res.render("home",{
         user: req.user,
         blogs: allBlogs,
